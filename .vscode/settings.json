@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "C:\\Users\\istrupin\\.virtualenvs\\python-jLMT4i_1\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    //"python.linting.pylintArgs": ["--enable=F,E,W"]
+}
