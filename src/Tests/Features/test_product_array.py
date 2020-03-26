@@ -1,7 +1,7 @@
 import pytest
 from functools import partial
 from pytest_bdd import scenario, scenarios, parsers, given, when, then
-from ProductArray import product_except_self
+from Arrays import product_except_self
 
 scenarios('product_array.feature')
 
