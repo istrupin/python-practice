@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\istrupin\\.virtualenvs\\python-practice-HbfYrVmX\\Scripts\\python.exe",
+    "python.pythonPath": "/home/igor/.local/share/virtualenvs/python-practice-eMW39rH0/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     //"python.linting.pylintArgs": ["--enable=F,E,W"]
