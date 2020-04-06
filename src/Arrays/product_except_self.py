@@ -18,13 +18,23 @@ class Solution:
         output = [1] * length
         for i in range(1,length):
             output[i] = output[i-1] * nums[i-1]
-        print(output)
         prev = 1
         for j in range(length-1)[::-1]:
             output[j] *= prev * nums[j+1]
             prev *= nums[j+1]
         return output
 
+    def productExceptSelfAgain(self, nums: List[int]) -> List[int]:
+        left = [1] * len(nums)
+        for i in range(1, len(nums)):
+            left[i] = left[i - 1] * nums[i - 1]
+        right =  nums[len(nums) - 1]
+        for j in range(len(nums)-2, -1, -1):
+            left[j] *= right
+            right *= nums[j]
+        return left
+
 
 x = Solution()
-print(x.productExceptSelf_constant_space([1,3,7,4]))
+# print(x.productExceptSelf_constant_space([1,3,7,4]))
+print(x.productExceptSelfAgain([1,3,7,4]))
