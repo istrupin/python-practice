@@ -17,31 +17,25 @@ def isSuperBalanced(root: BinaryTreeNode) -> bool:
     #do dfs
     #maintain record of deepest and shallowest leaf
     #subtract deep - shallow and return true if difference > 1
-    if root.left is None and root.right is None:
-        return True
     deepest, shallowest = None, None
     stack = []
     depth = 0
-    if root.left is not None:
-        stack.append((root.left, depth+1))
-    if root.right is not None:
-        stack.append((root.right, depth+1))
+    stack.append((root, depth))
     while len(stack) != 0:
         node, depth = stack.pop()
         if isLeaf(node):
             if deepest is None and shallowest is None:
                 deepest, shallowest = depth, depth
-            if depth > deepest:
+            if depth > deepest:  
                 deepest = depth
             if depth < shallowest:
                 shallowest = depth
             if (deepest - shallowest) > 1:
                 return False
-        depth +=1
         if node.left is not None:
-            stack.append((node.left, depth))
+            stack.append((node.left, depth+1))
         if node.right is not None:
-            stack.append((node.right, depth))
+            stack.append((node.right, depth+1))
     return True
 
 def isLeaf(node: BinaryTreeNode):
