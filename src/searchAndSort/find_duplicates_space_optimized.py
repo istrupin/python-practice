@@ -1,14 +1,11 @@
 from typing import List
 
 def find_duplicate_faster(nums:List[int]) -> int:
-    head = nums[len(nums) - 1]
-    left = head
-    right = head
+    left, right = nums[len(nums) - 1], nums[len(nums) - 1]
     for i in range(_find_cycle_length(nums)):
         right = nums[right - 1]
     while left != right:
-        left = nums[left - 1]
-        right = nums[right - 1]
+        left, right = nums[left - 1], nums[left - 1]
     return left
 
 def _find_cycle_length(nums:List[int]) -> int:
