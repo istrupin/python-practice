@@ -25,14 +25,25 @@ def change_combinations(amount:int, denominations:List[int], index:int = 0, memo
     if key in memo:
         print(f"getting from memo {key}")
         return memo[key]
-    print(f"Trying to create {amount} from {denominations[index:]}")
+    #print(f"Trying to create {amount} from {denominations[index:]}")
     res = change_combinations(amount - denominations[index], denominations, index, memo) + \
         change_combinations(amount, denominations, index + 1, memo)
     memo[key] = res
     return res
 
+def change_combinations_bottom_up(amount: int, denominations:List[int]) -> int:
+    ways_of_getting_n=[0] * (amount + 1)
+    ways_of_getting_n[0] = 1
+    for d in denominations:
+        for i in range (d, amount+1):
+            ways_of_getting_n[i] += ways_of_getting_n[i - d]
+
+    return ways_of_getting_n[amount]
+
+
     
 
 
-print(make_change(4,[1,2,3]))
-print(change_combinations(4,[1,2,3]))
+# print(make_change(4,[1,2,3]))
+# print(change_combinations(4,[1,2,3]))
+print(change_combinations_bottom_up(4,[1,2,3]))
