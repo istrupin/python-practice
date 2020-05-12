@@ -35,7 +35,7 @@ def change_combinations_bottom_up(amount: int, denominations:List[int]) -> int:
     ways_of_getting_n=[0] * (amount + 1)
     ways_of_getting_n[0] = 1
     for d in denominations:
-        for i in range (d, amount+1):
+        for i in range(d, amount+1):
             ways_of_getting_n[i] += ways_of_getting_n[i - d]
 
     return ways_of_getting_n[amount]
